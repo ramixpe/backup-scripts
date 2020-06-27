@@ -1,0 +1,36 @@
+#!/usr/bin/python
+
+from ncclient import manager
+
+with manager.connect(host="192.168.100.101", port=830, username="xr", password="xr", hostkey_verify=False) as nc_conn:
+   nc_config = nc_conn.get_config(source='running').data_xml
+   print (nc_config)
+
+## XR_Config##
+'''control-plane
+ management-plane
+  out-of-band
+   interface MgmtEth0/RSP0/CPU0/0
+    allow SSH
+    allow SNMP
+    allow NETCONF
+   !
+   interface MgmtEth0/RSP1/CPU0/0
+    allow SSH
+    allow SNMP
+    allow NETCONF
+   !
+  !
+ !
+!
+ssh server v2
+ssh server netconf port 830
+ssh server netconf vrf default
+netconf agent tty
+!
+netconf-yang agent ssh
+commit
+exit
+!
+crypto key generate rsa'''
+
