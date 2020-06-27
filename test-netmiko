@@ -1,0 +1,7 @@
+from netmiko import ConnectHandler
+
+connct = ConnectHandler(device_type='cisco_xr', host='192.168.100.101', username='xr', password='xr')
+
+a = connct.find_prompt()
+
+print(a)
