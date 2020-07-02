@@ -17,3 +17,13 @@ for hosts in devices:
         print("writing the command : " + str(cmd), "to router" +str(hosts))
         print ("commiting the change" + connect.commit())
         connect.disconnect()
+        
+        
+        
+###### push commands from File #######
+# for hosts in devices:
+#     connect = ConnectHandler(device_type='cisco_xr', host=hosts, username='xr', password='xr')
+#     output = connect.send_config_from_file("commands.txt")
+#     # print("writing the command : " + str(cmd), "to router" +str(hosts))
+#     connect.commit()
+#     connect.disconnect()
